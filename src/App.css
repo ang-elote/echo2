@@ -1,3 +1,54 @@
+
+
+/*colores */ 
+:root {
+  --celeste: #51B2D7;
+  --morado: #4224C8;
+  --rosado: #EA40B7;
+  --pseudo-negro: #222222;
+  --blanco-roto: #F5EEE9;
+  --naranja-intenso: #E74925;
+  --naranja-chill: #E5765E;
+  --verde: #23C947;
+  --azul-verdoso: #53B1C2;
+  --morado-oscuro: #AE318C;
+  --morado-oscurisimo: #7E2E8E;
+  --rosado-desaturado: #C25390;
+
+  --transparent-black: rgba(0, 0, 0, 0.5);
+}
+
+/*tipografías */ 
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; 
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+h1 {
+  font-size: 8rem !important; 
+  font-weight: bolder !important;
+  letter-spacing: -8px !important;
+}
+
+h2 {
+  font-size: 6rem !important;
+  font-weight: bolder !important;
+  letter-spacing: -4px !important;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+body, p {
+  font-family: 'Rubik', sans-serif !important;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
 .App {
   text-align: center;
 }
@@ -53,3 +104,5 @@
     opacity: 1;
   }
 }
+
+
