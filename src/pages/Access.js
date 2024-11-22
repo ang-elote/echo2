@@ -4,8 +4,10 @@ import { Box, Button, Typography } from "@mui/material";
 import bgAccess from "../assets/bg-access.png";
 import logo from "../assets/whitelogo.png"; 
 import GradientButton from '../components/GradientButton';
+import { useNavigate } from "react-router-dom";
 
 const Access = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -34,10 +36,10 @@ const Access = () => {
     }}
   />
       {/* texto d join the noise */}
-      <Typography variant="h2" sx={{ color: 'var(--blanco-roto)', marginBottom: -2}}>
+      <Typography variant="h2" sx={{ color: 'var(--blanco-roto)', marginBottom: -2, fontFamily: 'Helvetica'}}>
         join the
       </Typography>     
-      <Typography variant="h1" sx={{ color: 'var(--blanco-roto)', marginBottom: 6 }}>
+      <Typography variant="h1" sx={{ color: 'var(--blanco-roto)', marginBottom: 6, fontFamily: 'Helvetica' }}>
         noise
       </Typography>    
 
@@ -49,9 +51,9 @@ const Access = () => {
             marginBottom: 2,
             width: "290px",
             justifyContent: 'flex-start'
+            }}
             
-          }}
-        >
+            onClick={() => navigate("/login")}>
           log in
         </GradientButton>
         <br />
@@ -63,7 +65,7 @@ const Access = () => {
     justifyContent: 'flex-end'
 
   }}
->
+  onClick={() => navigate("/register")}>
   sign up
 </GradientButton>
 
