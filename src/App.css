@@ -41,11 +41,11 @@ h3 {
   font-size: 2rem;
 }
 
-body, p {
-  font-family: 'Rubik', sans-serif !important;
+/*body, p {
+  font-family: 'Rubik', sans-serif;
   font-size: 1rem;
   line-height: 1.5;
-}
+}*/
 
 
 .App {
@@ -86,13 +86,13 @@ body, p {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full-screen height */
-  background-color: #6baed6; /* Replace with your desired background color */
+  height: 100vh; 
+  background-color: var(--azul-verdoso); 
 }
 
 .logo {
   width: 100px; /* Adjust size */
-  animation: fade-in-out 2s ease-in-out infinite; /* Smooth animation */
+  animation: fade-in-out 2s ease-in-out infinite; 
 }
 
 @keyframes fade-in-out {
@@ -105,3 +105,7 @@ body, p {
 }
 
 
+.textfieldcss {
+  font-family: 'Rubik';
+  color: var(--pseudo-negro);
+}

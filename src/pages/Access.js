@@ -39,7 +39,7 @@ const Access = () => {
       <Typography variant="h2" sx={{ color: 'var(--blanco-roto)', marginBottom: -2, fontFamily: 'Helvetica'}}>
         join the
       </Typography>     
-      <Typography variant="h1" sx={{ color: 'var(--blanco-roto)', marginBottom: 6, fontFamily: 'Helvetica' }}>
+      <Typography sx={{ color: 'var(--blanco-roto)', marginBottom: 6, fontFamily: 'Helvetica', fontSize: '7rem'}}>
         noise
       </Typography>    
 
