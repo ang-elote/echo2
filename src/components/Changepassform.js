@@ -42,46 +42,9 @@ const Changepassform = () => {
         fontFamily: 'Rubik',
       }}
     >
-      {/* email */}
-      <FormControl fullWidth sx={{ marginBottom: 2}}>
-        <Typography
-          sx={{
-            fontFamily: 'Rubik',
-            fontSize: "1.2rem", 
-            color: "var(--blanco-roto)",  
-            marginBottom: "6px",  
-            textAlign: 'left'
-          }}
-        >
-          e-mail
-        </Typography>
-        <TextField
-          type="email"
-          name="email"
-          placeholder="e-mail"
-          fullWidth
-          required
-          sx={{
-            backgroundColor: 'var(--blanco-roto)', 
-            borderRadius: '48px', 
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '48px', 
-              '& fieldset': {
-                borderColor: 'transparent', 
-              },
-              '&:hover fieldset': {
-                borderColor: 'transparent', 
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: 'transparent', 
-              },
-            },
-          }}
-        />
-      </FormControl>
 
       {/* password */}
-      <FormControl fullWidth sx={{ marginBottom: 7 }}>
+      <FormControl fullWidth sx={{ marginBottom: 2 }}>
         <Typography
         sx={{
             fontFamily: 'Rubik',
@@ -131,27 +94,98 @@ const Changepassform = () => {
         />
       </FormControl>
 
+      {/* confirm password */}
+      <FormControl fullWidth sx={{ marginBottom: 7 }}>
+        <Typography
+        sx={{
+            fontFamily: 'Rubik',
+            fontSize: "1.2rem", 
+            color: "var(--blanco-roto)",  
+            marginBottom: "6px",  
+            textAlign: 'left'
+          }}
+        >
+          confirm password
+        </Typography>
+        <TextField
+          type={showPassword ? "text" : "password"}
+          name="password"
+          placeholder="password"
+          fullWidth
+          required
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={togglePasswordVisibility}
+                  edge="end"
+                  aria-label="toggle password visibility"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          sx={{
+            backgroundColor: 'var(--blanco-roto)', 
+            borderRadius: '48px', 
+            '& .MuiOutlinedInput-root': {
+              borderRadius: '48px', 
+              '& fieldset': {
+                borderColor: 'transparent', 
+              },
+              '&:hover fieldset': {
+                borderColor: 'transparent', 
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: 'transparent', 
+              },
+            },
+          }}
+        />
+      </FormControl>
+
+
      
-      {/* botón de log in */}
+      {/* botón de reset */}
       <Box>
         <GradientButton
           type="submit" 
-          customGradient="linear-gradient(-90deg, var(--naranja-chill) 30%, var(--rosado-desaturado) 60%, rgba(255, 111, 97, 0) 100%)"
+          customGradient="linear-gradient(-90deg, var(--verde) 30%, var(--azul-verdoso) 60%, rgba(255, 111, 97, 0) 100%)"
           sx={{
             color: "#fff",
             width: "290px",
             justifyContent: "flex-end",
+            marginBottom: 3,
           }}
         >
-          log in
+          reset
         </GradientButton>
     
       
       </Box>
 
-      <EmptyButton onClick={() => navigate("/register")}>
-        sign up instead
-     </EmptyButton>
+      <Box
+  sx={{
+    display: "flex",
+    justifyContent: "flex-start", // Aligns the button to the left
+    width: "100%", // Ensures it takes up the full width of the parent container
+  }}
+>
+  <GradientButton
+    onClick={() => navigate("/login")}
+    customGradient="linear-gradient(90deg, var(--rosado-desaturado) 30%, var(--morado-oscurisimo) 60%, rgba(255, 111, 97, 0) 100%)"
+    sx={{
+      color: "#fff",
+      width: "230px",
+      height: "50px",
+      fontSize: "1.2rem",
+      justifyContent: "flex-start"
+    }}
+  >
+    cancel
+  </GradientButton>
+</Box>
 
     </Box>
   );
