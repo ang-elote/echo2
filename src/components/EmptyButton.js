@@ -11,7 +11,6 @@ const StyledButton = styled(Button)(({ theme }) => ({
   fontFamily: 'Helvetica',
   fontWeight: 'bold',
   color: 'var(--blanco-roto)',
-  textAlign: 'center',
   marginTop: 10
 }));
 
