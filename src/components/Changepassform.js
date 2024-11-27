@@ -1,36 +1,47 @@
 import React, { useState } from "react";
-import { Box, TextField, InputAdornment, IconButton, FormControl, Typography } from "@mui/material";
+import {
+  Box,
+  TextField,
+  InputAdornment,
+  IconButton,
+  FormControl,
+  Typography,
+} from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import GradientButton from '../components/GradientButton';
-import EmptyButton from '../components/EmptyButton';
+import GradientButton from "../components/GradientButton";
 import { useNavigate } from "react-router-dom";
 
 const Changepassform = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); 
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const isValid = form.checkValidity(); // validación
-
-    if (isValid) {
-      console.log("Form submitted successfully!");
-      navigate("/home"); // navegar a home si validado
-    } else {
-      console.log("Please fill all required fields.");
+    if (password !== confirmPassword) {
+      console.log("Passwords do not match!");
+      alert("Passwords do not match!");
+      return;
     }
+    console.log("Form submitted successfully!");
+    navigate("/home"); // Navigate to home
   };
 
   return (
     <Box
       component="form"
-      onSubmit={handleSubmit} 
+      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -39,19 +50,18 @@ const Changepassform = () => {
         width: "300px",
         margin: "0 auto",
         textAlign: "center",
-        fontFamily: 'Rubik',
+        fontFamily: "Rubik",
       }}
     >
-
-      {/* password */}
+      {/* Password */}
       <FormControl fullWidth sx={{ marginBottom: 2 }}>
         <Typography
-        sx={{
-            fontFamily: 'Rubik',
-            fontSize: "1.2rem", 
-            color: "var(--blanco-roto)",  
-            marginBottom: "6px",  
-            textAlign: 'left'
+          sx={{
+            fontFamily: "Rubik",
+            fontSize: "1.2rem",
+            color: "var(--blanco-roto)",
+            marginBottom: "6px",
+            textAlign: "left",
           }}
         >
           password
@@ -62,6 +72,8 @@ const Changepassform = () => {
           placeholder="password"
           fullWidth
           required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -76,81 +88,81 @@ const Changepassform = () => {
             ),
           }}
           sx={{
-            backgroundColor: 'var(--blanco-roto)', 
-            borderRadius: '48px', 
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '48px', 
-              '& fieldset': {
-                borderColor: 'transparent', 
+            backgroundColor: "var(--blanco-roto)",
+            borderRadius: "48px",
+            "& .MuiOutlinedInput-root": {
+              borderRadius: "48px",
+              "& fieldset": {
+                borderColor: "transparent",
               },
-              '&:hover fieldset': {
-                borderColor: 'transparent', 
+              "&:hover fieldset": {
+                borderColor: "transparent",
               },
-              '&.Mui-focused fieldset': {
-                borderColor: 'transparent', 
+              "&.Mui-focused fieldset": {
+                borderColor: "transparent",
               },
             },
           }}
         />
       </FormControl>
 
-      {/* confirm password */}
+      {/* Confirm Password */}
       <FormControl fullWidth sx={{ marginBottom: 7 }}>
         <Typography
-        sx={{
-            fontFamily: 'Rubik',
-            fontSize: "1.2rem", 
-            color: "var(--blanco-roto)",  
-            marginBottom: "6px",  
-            textAlign: 'left'
+          sx={{
+            fontFamily: "Rubik",
+            fontSize: "1.2rem",
+            color: "var(--blanco-roto)",
+            marginBottom: "6px",
+            textAlign: "left",
           }}
         >
           confirm password
         </Typography>
         <TextField
-          type={showPassword ? "text" : "password"}
-          name="password"
-          placeholder="password"
+          type={showConfirmPassword ? "text" : "password"}
+          name="confirmPassword"
+          placeholder="confirm password"
           fullWidth
           required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  onClick={togglePasswordVisibility}
+                  onClick={toggleConfirmPasswordVisibility}
                   edge="end"
-                  aria-label="toggle password visibility"
+                  aria-label="toggle confirm password visibility"
                 >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             ),
           }}
           sx={{
-            backgroundColor: 'var(--blanco-roto)', 
-            borderRadius: '48px', 
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '48px', 
-              '& fieldset': {
-                borderColor: 'transparent', 
+            backgroundColor: "var(--blanco-roto)",
+            borderRadius: "48px",
+            "& .MuiOutlinedInput-root": {
+              borderRadius: "48px",
+              "& fieldset": {
+                borderColor: "transparent",
               },
-              '&:hover fieldset': {
-                borderColor: 'transparent', 
+              "&:hover fieldset": {
+                borderColor: "transparent",
               },
-              '&.Mui-focused fieldset': {
-                borderColor: 'transparent', 
+              "&.Mui-focused fieldset": {
+                borderColor: "transparent",
               },
             },
           }}
         />
       </FormControl>
 
-
-     
-      {/* botón de reset */}
+      {/* Reset Button */}
       <Box>
         <GradientButton
-          type="submit" 
+          type="submit"
           customGradient="linear-gradient(-90deg, var(--verde) 30%, var(--azul-verdoso) 60%, rgba(255, 111, 97, 0) 100%)"
           sx={{
             color: "#fff",
@@ -161,32 +173,7 @@ const Changepassform = () => {
         >
           reset
         </GradientButton>
-    
-      
       </Box>
-
-      <Box
-  sx={{
-    display: "flex",
-    justifyContent: "flex-start", // Aligns the button to the left
-    width: "100%", // Ensures it takes up the full width of the parent container
-  }}
->
-  <GradientButton
-    onClick={() => navigate("/login")}
-    customGradient="linear-gradient(90deg, var(--rosado-desaturado) 30%, var(--morado-oscurisimo) 60%, rgba(255, 111, 97, 0) 100%)"
-    sx={{
-      color: "#fff",
-      width: "230px",
-      height: "50px",
-      fontSize: "1.2rem",
-      justifyContent: "flex-start"
-    }}
-  >
-    cancel
-  </GradientButton>
-</Box>
-
     </Box>
   );
 };
