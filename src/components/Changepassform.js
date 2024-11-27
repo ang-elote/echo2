@@ -11,6 +11,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import GradientButton from "../components/GradientButton";
 import { useNavigate } from "react-router-dom";
+import EmptyButton from '../components/EmptyButton';
 
 const Changepassform = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -173,6 +174,8 @@ const Changepassform = () => {
         >
           reset
         </GradientButton>
+
+        <EmptyButton onClick={() => navigate("/login")}>back</EmptyButton>
       </Box>
     </Box>
   );
