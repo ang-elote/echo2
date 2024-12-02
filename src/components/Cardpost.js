@@ -42,7 +42,7 @@ const Cardpost = ({ username, profilePic, content, title, artist, description, i
       </Box>
 
       {/* Card Content */}
-      <Box
+      <Box 
         sx={{
           backgroundColor: "var(--pseudo-negro)",
           color: "var(--blanco-roto)",
@@ -65,7 +65,7 @@ const Cardpost = ({ username, profilePic, content, title, artist, description, i
           <Typography variant="body2" sx={{ fontSize: "0.85rem", color: "var(--blanco-roto)" }}>
             {description}
           </Typography>
-          <Typography
+          <Typography 
             variant="body2"
             sx={{
               fontSize: "0.85rem",

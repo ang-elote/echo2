@@ -11,6 +11,8 @@
           import Makepost from './pages/Makepost';
           import Editpost from './pages/Editpost';
           import Profile from './pages/Profile';
+          import Postdetail from './pages/Postdetail.js';
+
 
       import './App.css';
       import { ThemeProvider } from '@mui/material';
@@ -31,6 +33,10 @@ function App() {
           <Route path="/makepost" element={<Makepost />} />
           <Route path="/editpost" element={<Editpost />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/postdetail" element={<Postdetail />} />
+          
+          
+
         </Routes>
       </Router>
     </ThemeProvider>

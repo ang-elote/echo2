@@ -17,6 +17,7 @@ import lightson from "../assets/lightson.jpeg";
 
 
 const Home = () => {
+
   const [tabValue, setTabValue] = React.useState(0);
 
   const handleTabChange = (event, newValue) => {
@@ -27,7 +28,7 @@ const Home = () => {
     <Box sx={{ backgroundColor: "var(--blanco-roto)", minHeight: "100vh" }}>
      
 
-      {/* Title and Notification */}
+      {/* titulo y notif */}
       <Box
         sx={{
           display: "flex",
@@ -76,8 +77,8 @@ const Home = () => {
         </Tabs>
       </Box>
 
-      {/* Posts Section */}
-      <Box sx={{ padding: "16px" }}>
+      {/* seccion d posts */}
+      <Box sx={{ padding: "16px", paddingBottom: 8}}>
         {tabValue === 0 ? (
           <Box>
             {/* posts en el feed */}
