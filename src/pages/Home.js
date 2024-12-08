@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { Box, Typography, Tab, Tabs, Fab, Badge } from "@mui/material";
@@ -17,65 +17,120 @@ import lightson from "../assets/lightson.jpeg";
 
 
 const Home = () => {
-
-  const [tabValue, setTabValue] = React.useState(0);
+  const [tabValue, setTabValue] = useState(0);
+  const [isTopBarVisible, setIsTopBarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleTabChange = (event, newValue) => {
     setTabValue(newValue);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down
+        setIsTopBarVisible(false);
+      } else {
+        // Scrolling up
+        setIsTopBarVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
     <Box sx={{ backgroundColor: "var(--blanco-roto)", minHeight: "100vh" }}>
-     
+      
+    {/* Top Bar */}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "16px",
+        backgroundColor: "var(--pseudo-negro)",
+        color: "var(--blanco-roto)",
+        position: "fixed", // Stick to the top of the page
+        top: isTopBarVisible ? 0 : "-100px", // Hide on scroll down, show on scroll up
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: "top 0.3s ease-in-out", // Smooth slide effect
+      }}
+    >
+      {/* Hamburger Sidebar */}
+      <Sidebar />
 
-      {/* titulo y notif */}
-      <Box
+      {/* Title */}
+      <Typography sx={{ fontWeight: "bold", fontSize: "1.3rem" }}>
+        Home
+      </Typography>
+
+      {/* Notifications */}
+      <Badge
+        badgeContent={6}
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "16px",
-          backgroundColor: "var(--pseudo-negro)",
-          color: "var(--blanco-roto)",
+          "& .MuiBadge-badge": {
+            backgroundColor: "var(--naranja-intenso)", // Notification badge color
+            color: "var(--blanco-roto)", // Text color inside badge
+          },
         }}
       >
-
-      {/* hamburger sidebar */}
-         <Sidebar />
-
-      {/* título d home */}
-      <Typography sx={{ fontWeight: "bold", fontSize: "1.3rem" }}>
-          Home
-        </Typography>
-
-      
-       {/* notificaciones */}
-        <Badge
-      badgeContent={6}
-        sx={{
-            "& .MuiBadge-badge": {
-              backgroundColor: "var(--naranja-intenso)", // color d la badge de notif
-              color: "var(--blanco-roto)", // color del texto dentro del badge
-             },
-            }}
-        >
-      <NotificationsRoundedIcon sx={{ fontSize: 28, color: "var(--blanco-roto)" }} />
-</Badge>
-      </Box>
-
+        <NotificationsRoundedIcon sx={{ fontSize: 28, color: "var(--blanco-roto)" }} />
+      </Badge>
+    </Box>
       {/* tabs section */}
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={tabValue}
-          onChange={handleTabChange}
-          textColor="inherit"
-          indicatorColor="primary"
-          centered
-        >
-          <Tab label="feed" />
-          <Tab label="following" />
-        </Tabs>
-      </Box>
+      <Box sx={{ borderBottom: 0, borderColor: "divider", marginTop: "60px" }}>
+      <Tabs
+        value={tabValue}
+        onChange={handleTabChange}
+        textColor="inherit"
+        indicatorColor="primary" 
+        centered
+        sx={{
+          "& .MuiTabs-indicator": {
+            backgroundColor: "var(--pseudo-negro)", // color del indicador
+          },
+          "& .MuiTab-root": {
+            color: "var(--gris-claro)", // tab inactiva
+            textTransform: "lowercase", 
+            fontWeight: "regular",
+            fontSize: "1rem"
+
+          },
+          "& .Mui-selected": {
+            color: "var(--pseudo-negro)", // tab activa
+            fontWeight: "bold",
+            fontSize: "1.2rem"
+
+
+          },
+        }}
+      >
+        <Tab
+          label="feed"
+          sx={{
+          }}
+        />
+        <Tab
+          label="following"
+          sx={{
+            border: "1px solid var(--gris-claro)",
+            borderRadius: "8px",
+            margin: "0 18px",
+          }}
+        />
+      </Tabs>
+    </Box>
 
       {/* seccion d posts */}
       <Box sx={{ padding: "16px", paddingBottom: 8}}>

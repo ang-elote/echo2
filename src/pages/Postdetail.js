@@ -7,6 +7,8 @@ import MusicNoteRoundedIcon from "@mui/icons-material/MusicNoteRounded";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import CommentIcon from "@mui/icons-material/Comment";
 import sweettrip from "../assets/sweettrip.jpg"; 
+import Navbar from "../components/Navbar";
+
 
 const Postdetail = () => {
   const [liked, setLiked] = useState(false);
@@ -122,7 +124,9 @@ const Postdetail = () => {
             <CommentIcon />
           </Button>
         </Box>
+
       </Box>
+
     </Box>
   );
 };
