@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography, IconButton, Avatar } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
@@ -8,9 +9,15 @@ import MoreHorizRoundedIcon from "@mui/icons-material/MoreHoriz";
 
 const Cardpost = ({ username, profilePic, content, title, artist, description, image }) => {
   const [liked, setLiked] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLike = () => {
     setLiked(!liked);
+  };
+
+  // redireccion a pag de post detail al clic readmore
+  const handleReadMore = () => {
+    navigate("/postdetail", { state: { username, title, artist, description, image } }); // Pass data to the next page if needed
   };
 
   return (
@@ -22,6 +29,7 @@ const Cardpost = ({ username, profilePic, content, title, artist, description, i
           alignItems: "center",
           gap: "8px",
           marginBottom: "8px",
+          color: "var(--pseudo-negro)",
         }}
       >
         <Avatar
@@ -73,6 +81,7 @@ const Cardpost = ({ username, profilePic, content, title, artist, description, i
               fontWeight: "bold",
               cursor: "pointer",
             }}
+            onClick={handleReadMore} // Redirect on click
           >
             read more
           </Typography>
