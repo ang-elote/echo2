@@ -30,7 +30,8 @@ const Postdetail = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: "800px", margin: "0 auto", padding: "20px", backgroundColor: 'var(--pseudo-negro)' }}>
+    <Box sx={{ maxWidth: "100%", margin: "0 auto" }}>
+    <Box sx={{padding: "20px", backgroundColor: 'var(--pseudo-negro)' }}>
       {/* titulo */}
       <Typography  sx={{ fontWeight: "bold", fontSize: "1.3rem", color: 'var(--blanco-roto)', paddingBottom: 3 }}>
         Post
@@ -109,7 +110,7 @@ const Postdetail = () => {
         </Box>
 
         {/* input de comentarios */}
-        <Box sx={{ display: "flex", gap: "12px", marginTop: "16px" , color: "var(--blanco-roto)" }}>
+        <Box sx={{ display: "flex", gap: "12px", marginTop: "16px" , color: "var(--blanco-roto)", marginBottom: "100px"}}>
           <TextField sx={{backgroundColor: "var(--blanco-roto)", borderRadius: 5 }}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
@@ -119,7 +120,7 @@ const Postdetail = () => {
           <Button
             onClick={handleCommentSubmit}
             variant="contained"
-            sx={{ backgroundColor: "var(--celeste)", color: "white", height: "100%",  borderRadius: 5 }}
+            sx={{ backgroundColor: "var(--celeste)", color: "white", height: "100%",  borderRadius: 4 }}
           >
             <CommentIcon />
           </Button>
@@ -127,6 +128,9 @@ const Postdetail = () => {
 
       </Box>
 
+    </Box>
+    {/* Navbar */}
+<Navbar />
     </Box>
   );
 };

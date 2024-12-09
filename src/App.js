@@ -1,4 +1,3 @@
-
       import React from 'react';
       import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -12,6 +11,8 @@
           import Editpost from './pages/Editpost';
           import Profile from './pages/Profile';
           import Postdetail from './pages/Postdetail.js';
+          import Settings from './pages/Settings.js';
+
 
 
       import './App.css';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/editpost" element={<Editpost />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/postdetail" element={<Postdetail />} />
+          <Route path="/settings" element={<Settings />} />
           
           
 
