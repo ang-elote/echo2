@@ -8,7 +8,7 @@ import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import CommentIcon from "@mui/icons-material/Comment";
 import sweettrip from "../assets/sweettrip.jpg"; 
 import Navbar from "../components/Navbar";
-
+import Topbarback from "../components/Topbarback";
 
 const Postdetail = () => {
   const [liked, setLiked] = useState(false);
@@ -31,14 +31,13 @@ const Postdetail = () => {
 
   return (
     <Box sx={{ maxWidth: "100%", margin: "0 auto" }}>
+              {/* topbar */}
+              <Topbarback title="Post" textColor="var(--blanco-roto)" />
+
     <Box sx={{padding: "20px", backgroundColor: 'var(--pseudo-negro)' }}>
-      {/* titulo */}
-      <Typography  sx={{ fontWeight: "bold", fontSize: "1.3rem", color: 'var(--blanco-roto)', paddingBottom: 3 }}>
-        Post
-      </Typography>
 
       {/* usuario y pfp */}
-      <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px", color: 'var(--blanco-roto)' }}>
+      <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px", color: 'var(--blanco-roto)', paddingTop: 8 }}>
         <Avatar sx={{ width: 32, height: 32 }} />
         <Typography variant="body1" sx={{ marginLeft: "8px", fontWeight: "medium" }}>
           @andrucci reviewed an album

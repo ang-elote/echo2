@@ -29,9 +29,9 @@ const Topbarback = ({
         fontSize: "1.4rem",
             }}
     >
-      {/* Back Button */}
+      {/* back Button */}
       <IconButton
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => navigate(-1)} // ir a página previa
         sx={{
           color: textColor,
         }}

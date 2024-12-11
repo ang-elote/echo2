@@ -18,9 +18,9 @@ const Settings = () => {
         {/* contenido */}
         <Box
           sx={{
-            marginTop: "64px", // To avoid overlap with the fixed top bar
-            padding: "16px", // Add your desired padding here
-            flexGrow: 1, // Allow content to grow and take remaining space
+            marginTop: "64px", 
+            padding: "16px", 
+            flexGrow: 1, 
             backgroundImage: "linear-gradient(to bottom, #2e2e2e, var(--pseudo-negro))",
             backgroundSize: "cover",
             backgroundPosition: "center",
