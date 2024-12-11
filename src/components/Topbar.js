@@ -64,7 +64,7 @@ const Topbar = ({ title = "Home" }) => {
         </IconButton>
 
         {/* titulo */}
-        <Typography  sx={{ fontFamily: "Helvetica, Arial", fontWeight: "bold", fontSize: "1.4rem" }}>
+        <Typography  sx={{ fontFamily: "Rubik, Arial", fontWeight: "bold", fontSize: "1.4rem" }}>
           {title}
         </Typography>
 

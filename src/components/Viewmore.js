@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Viewmore = ({ text = "titulo", textColor = "var(--pseudo-negro)" }) => {
+const Viewmore = ({ text = "titulo", textColor = "var(--pseudo-negro)", showButton = true }) => {
   return (
     <Box
       sx={{
@@ -26,32 +26,34 @@ const Viewmore = ({ text = "titulo", textColor = "var(--pseudo-negro)" }) => {
         {text}
       </Typography>
 
-      {/* viewmore */}
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          cursor: "pointer",
-        }}
-      >
-        <Typography
+      {/* Conditionally render viewmore */}
+      {showButton && (
+        <Box
           sx={{
-            fontSize: "1rem", 
-            fontWeight: "regular",
-            color: textColor, 
-            fontFamily: "Rubik, sans-serif",
-            marginRight: "4px", 
+            display: "flex",
+            alignItems: "center",
+            cursor: "pointer",
           }}
         >
-          view all
-        </Typography>
-        <ArrowForwardIosIcon
-          sx={{
-            fontSize: "1rem", 
-            color: textColor, 
-          }}
-        />
-      </Box>
+          <Typography
+            sx={{
+              fontSize: "1rem", 
+              fontWeight: "regular",
+              color: textColor, 
+              fontFamily: "Rubik, sans-serif",
+              marginRight: "4px", 
+            }}
+          >
+            view all
+          </Typography>
+          <ArrowForwardIosIcon
+            sx={{
+              fontSize: "1rem", 
+              color: textColor, 
+            }}
+          />
+        </Box>
+      )}
     </Box>
   );
 };

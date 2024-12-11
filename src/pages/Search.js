@@ -23,10 +23,6 @@ import charli from "../assets/charli.jpg";
 
 
 
-
-
-
-
 const Search = () => {
   const [recentSearches, setRecentSearches] = useState([
     "mf doom", 
@@ -38,12 +34,12 @@ const Search = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
 
-  // Function to remove a search item
+  // funcion para borrar search item
   const removeSearchItem = (searchText) => {
     setRecentSearches(recentSearches.filter(item => item !== searchText));
   };
 
-  // Slick slider settings
+  // slider
   const settings = {
     dots: false, 
     arrows: false, 
@@ -132,7 +128,7 @@ const Search = () => {
           <SongCard songImage={kelela} songName="contact" artistName="kelela" />
           <SongCard songImage={shygirl} songName="bb" artistName="shygirl" />
           <SongCard songImage={arca} songName="klk" artistName="arca, rosalía" />
-          <SongCard songImage={charli} songName="club classics feat..." artistName="charli xcx, bb trickz" />
+          <SongCard songImage={charli} songName="club classics feat.." artistName="charli xcx, bb trickz" />
         </Slider>
       </Box>
 

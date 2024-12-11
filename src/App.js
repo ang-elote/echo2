@@ -13,6 +13,8 @@
           import Postdetail from './pages/Postdetail.js';
           import Settings from './pages/Settings.js';
           import Search from './pages/Search.js';
+          import Jamz from './pages/Jamz.js';
+
           import "slick-carousel/slick/slick.css";
           import "slick-carousel/slick/slick-theme.css";
           
@@ -40,6 +42,8 @@ function App() {
           <Route path="/postdetail" element={<Postdetail />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/jamz" element={<Jamz />} />
+
 
           
           

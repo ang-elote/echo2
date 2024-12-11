@@ -56,9 +56,9 @@ const Navbar = () => {
 
       {/* Song History Icon */}
       <IconButton
-        onClick={() => navigate("/history")}
+        onClick={() => navigate("/jamz")}
         sx={{
-          backgroundColor: getFillColor("/history"),
+          backgroundColor: getFillColor("/jamz"),
           color: "#fff",
           width: "50px",
           height: "50px",
