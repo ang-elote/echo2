@@ -3,6 +3,8 @@ import { Box, Typography } from "@mui/material";
 import bgLogin from "../assets/bg-login.png";
 import logo from "../assets/whitelogo.png"; 
 import Loginform from '../components/Loginform';
+import Responsivelogo from '../components/Responsivelogo';
+
 const Login = () => {
   return (
     <Box
@@ -18,18 +20,9 @@ const Login = () => {
         textAlign: "center",
       }}
     >
-      <Box
-        component="img"
-        src={logo}
-        alt="Echo Logo"
-        sx={{
-          position: 'absolute',
-          top: '56px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '80px',
-        }}
-      />
+      {/* logo de la app */}
+      <Responsivelogo src={logo} />
+
 
       <Typography sx={{ 
         color: 'var(--blanco-roto)', 

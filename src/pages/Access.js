@@ -5,6 +5,7 @@ import bgAccess from "../assets/bg-access.png";
 import logo from "../assets/whitelogo.png"; 
 import GradientButton from '../components/GradientButton';
 import { useNavigate } from "react-router-dom";
+import Responsivelogo from '../components/Responsivelogo';
 
 const Access = () => {
   const navigate = useNavigate();
@@ -23,18 +24,7 @@ const Access = () => {
       }}
     >
       {/* logo de la app */}
-      <Box
-    component="img"
-    src={logo}   
-    alt="Echo Logo"
-    sx={{
-      position: 'absolute',
-      top: '56px', // margen d arriba
-      left: '50%',
-      transform: 'translateX(-50%)', // q quede centrado horizontalmente
-      width: '80px',
-    }}
-  />
+      <Responsivelogo src={logo} />
       {/* texto d join the noise */}
       <Typography variant="h2" sx={{ color: 'var(--blanco-roto)', marginBottom: -2, fontFamily: 'Helvetica'}}>
         join the
