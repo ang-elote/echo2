@@ -61,7 +61,7 @@ const Jamz = () => {
          <Songsmall
             version="playing"
             songName="witchy"
-            artistName="kaytranada"
+            artistName="kaytranada, childish gambino"
             songImage={kaytranada} 
         />      
         <Songsmall
